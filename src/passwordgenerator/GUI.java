@@ -335,13 +335,21 @@ public class GUI extends javax.swing.JFrame {
     
     private void setLanguage(int language) {
         JLabel[] labels = {lblPL, lblUppercase, lblLowercase, lblNumbers, lblSymbols};
+        
         String[][] languages = {{"Password Length", "Uppercase", "Lowercase", "Numbers", "Symbols"},
                                 {"Long contraseña", "Mayúsculas", "Minúsculas", "Números", "Símbolos"},
-                                {"Lonx contrasinal", "Maiúsculas", "Minúsculas", "Numeros", "Símbolos"}};
+                                {"Lonx contrasinal", "Maiúsculas", "Minúsculas", "Números", "Símbolos"}};
+        
+        String[][] languageButtons = {{"generate_password.png", "generate_password2.png"},
+                                      {"generate-passwordE.png", "generate-passwordE2.png"},
+                                      {"generate-passwordG.png", "generate-passwordG2.png"}};
         
         for (int i = 0; i < labels.length; i++) {
             labels[i].setText(languages[language][i]);
         }
+        
+        btnGeneratePassword.setIcon(new ImageIcon(System.getProperty("user.dir") + "\\src\\passwordgenerator\\img\\" + languageButtons[language][0]));
+        btnGeneratePassword.setPressedIcon(new ImageIcon(System.getProperty("user.dir") + "\\src\\passwordgenerator\\img\\" + languageButtons[language][1]));
     }
     
     private void setCheckboxImage(JCheckBox c) {
